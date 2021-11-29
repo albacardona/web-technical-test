@@ -1,0 +1,322 @@
+[
+    {
+        "id": 1,
+        "name": "Ruthe",
+        "lat": 41.402825,
+        "lng": 2.201317,
+        "battery": 31,
+        "status": 5
+    },
+    {
+        "id": 2,
+        "name": "Suzanne",
+        "lat": 41.413807,
+        "lng": 2.185967,
+        "battery": 94,
+        "status": 4
+    },
+    {
+        "id": 3,
+        "name": "Julianne",
+        "lat": 41.378682,
+        "lng": 2.122197,
+        "battery": 84,
+        "status": 5
+    },
+    {
+        "id": 4,
+        "name": "Catalina",
+        "lat": 41.394927,
+        "lng": 2.127842,
+        "battery": 82,
+        "status": 5
+    },
+    {
+        "id": 5,
+        "name": "Craig",
+        "lat": 41.399575,
+        "lng": 2.145365,
+        "battery": 55,
+        "status": 5
+    },
+    {
+        "id": 6,
+        "name": "Ardella",
+        "lat": 41.392992,
+        "lng": 2.140752,
+        "battery": 86,
+        "status": 4
+    },
+    {
+        "id": 7,
+        "name": "Gilbert",
+        "lat": 41.399522,
+        "lng": 2.14528,
+        "battery": 19,
+        "status": 2
+    },
+    {
+        "id": 8,
+        "name": "Bell",
+        "lat": 41.425927,
+        "lng": 2.14041,
+        "battery": 65,
+        "status": 4
+    },
+    {
+        "id": 9,
+        "name": "Hobart",
+        "lat": 41.37581,
+        "lng": 2.17455,
+        "battery": 2,
+        "status": 2
+    },
+    {
+        "id": 10,
+        "name": "Daisha",
+        "lat": 41.425477,
+        "lng": 2.191817,
+        "battery": 45,
+        "status": 0
+    },
+    {
+        "id": 11,
+        "name": "Connor",
+        "lat": 41.405625,
+        "lng": 2.139262,
+        "battery": 29,
+        "status": 4
+    },
+    {
+        "id": 12,
+        "name": "Alana",
+        "lat": 41.390487,
+        "lng": 2.111602,
+        "battery": 5,
+        "status": 2
+    },
+    {
+        "id": 13,
+        "name": "Waldo",
+        "lat": 41.290027,
+        "lng": 1.779633,
+        "battery": 61,
+        "status": 0
+    },
+    {
+        "id": 14,
+        "name": "Rozella",
+        "lat": 41.393102,
+        "lng": 2.140662,
+        "battery": 67,
+        "status": 4
+    },
+    {
+        "id": 15,
+        "name": "Nettie",
+        "lat": 41.398077,
+        "lng": 2.147078,
+        "battery": 41,
+        "status": 1
+    },
+    {
+        "id": 16,
+        "name": "Vincenza",
+        "lat": 41.366597,
+        "lng": 2.143657,
+        "battery": 66,
+        "status": 1
+    },
+    {
+        "id": 17,
+        "name": "Nikita",
+        "lat": 41.399747,
+        "lng": 2.19245,
+        "battery": 80,
+        "status": 0
+    },
+    {
+        "id": 18,
+        "name": "Judy",
+        "lat": 41.378657,
+        "lng": 2.150817,
+        "battery": 6,
+        "status": 2
+    },
+    {
+        "id": 19,
+        "name": "Murray",
+        "lat": 41.394292,
+        "lng": 2.163697,
+        "battery": 93,
+        "status": 4
+    },
+    {
+        "id": 20,
+        "name": "Kenyatta",
+        "lat": 41.385882,
+        "lng": 2.182417,
+        "battery": 13,
+        "status": 2
+    },
+    {
+        "id": 21,
+        "name": "Dexter",
+        "lat": 41.385222,
+        "lng": 2.160717,
+        "battery": 18,
+        "status": 2
+    },
+    {
+        "id": 22,
+        "name": "Margie",
+        "lat": 41.383932,
+        "lng": 2.117125,
+        "battery": 10,
+        "status": 2
+    },
+    {
+        "id": 23,
+        "name": "Aiden",
+        "lat": 41.397667,
+        "lng": 2.194017,
+        "battery": 72,
+        "status": 4
+    },
+    {
+        "id": 24,
+        "name": "Hortense",
+        "lat": 41.417692,
+        "lng": 2.19105,
+        "battery": 62,
+        "status": 0
+    },
+    {
+        "id": 25,
+        "name": "Trudie",
+        "lat": 41.399503,
+        "lng": 2.145277,
+        "battery": 78,
+        "status": 1
+    },
+    {
+        "id": 26,
+        "name": "Clifford",
+        "lat": 41.406682,
+        "lng": 2.162117,
+        "battery": 87,
+        "status": 4
+    },
+    {
+        "id": 27,
+        "name": "Rosalind",
+        "lat": 41.414167,
+        "lng": 2.199417,
+        "battery": 97,
+        "status": 5
+    },
+    {
+        "id": 28,
+        "name": "Tiffany",
+        "lat": 41.406517,
+        "lng": 2.215017,
+        "battery": 24,
+        "status": 5
+    },
+    {
+        "id": 29,
+        "name": "Elroy",
+        "lat": 41.371707,
+        "lng": 2.14854,
+        "battery": 67,
+        "status": 5
+    },
+    {
+        "id": 30,
+        "name": "Stanley",
+        "lat": 41.396335,
+        "lng": 2.168517,
+        "battery": 72,
+        "status": 5
+    },
+    {
+        "id": 31,
+        "name": "Kaya",
+        "lat": 41.406947,
+        "lng": 2.211217,
+        "battery": 10,
+        "status": 2
+    },
+    {
+        "id": 32,
+        "name": "Jazmin",
+        "lat": 41.389337,
+        "lng": 2.15098,
+        "battery": 64,
+        "status": 1
+    },
+    {
+        "id": 33,
+        "name": "Mortimer",
+        "lat": 41.382202,
+        "lng": 2.127072,
+        "battery": 49,
+        "status": 1
+    },
+    {
+        "id": 34,
+        "name": "Schuyler",
+        "lat": 41.382842,
+        "lng": 2.17435,
+        "battery": 51,
+        "status": 5
+    },
+    {
+        "id": 35,
+        "name": "Brice",
+        "lat": 41.406227,
+        "lng": 2.174467,
+        "battery": 64,
+        "status": 0
+    },
+    {
+        "id": 36,
+        "name": "Blair",
+        "lat": 41.3855,
+        "lng": 2.11139,
+        "battery": 28,
+        "status": 1
+    },
+    {
+        "id": 37,
+        "name": "Ed",
+        "lat": 41.40529,
+        "lng": 2.193117,
+        "battery": 39,
+        "status": 1
+    },
+    {
+        "id": 38,
+        "name": "Missouri",
+        "lat": 41.384117,
+        "lng": 2.153112,
+        "battery": 64,
+        "status": 5
+    },
+    {
+        "id": 39,
+        "name": "Ara",
+        "lat": 41.371987,
+        "lng": 2.132827,
+        "battery": 16,
+        "status": 2
+    },
+    {
+        "id": 40,
+        "name": "Guadalupe",
+        "lat": 41.411775,
+        "lng": 2.15874,
+        "battery": 78,
+        "status": 4
+    }
+]

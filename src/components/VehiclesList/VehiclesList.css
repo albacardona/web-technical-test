@@ -1,0 +1,7 @@
+.vehicles-list {
+  position: absolute;
+  top: 5rem;
+  right: 0;
+  height: 72%;
+  overflow: scroll;
+};

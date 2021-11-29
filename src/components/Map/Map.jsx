@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { GoogleMap, useLoadScript } from '@react-google-maps/api';
 import mapStyle from './mapStyle';
+import VehiclesList from '../VehiclesList/VehiclesList';
 
 const containerStyle = {
   width: '100%',
@@ -24,12 +25,15 @@ const Map = () => {
   });
 
   return isLoaded? (
-    <GoogleMap
-      mapContainerStyle={containerStyle}
-      center={center}
-      zoom={13}
-      options={options}
-    />
+    <Fragment>
+      <GoogleMap
+        mapContainerStyle={containerStyle}
+        center={center}
+        zoom={13}
+        options={options}
+      />
+      <VehiclesList />
+    </Fragment>
   ) : <>Loading map...</>
 };
 
