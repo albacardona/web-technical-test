@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
-import { GoogleMap, useLoadScript } from '@react-google-maps/api';
+import { useSelector } from 'react-redux';
+import { GoogleMap, useLoadScript, Marker } from '@react-google-maps/api';
 import mapStyle from './mapStyle';
 import VehiclesList from '../VehiclesList/VehiclesList';
 
@@ -24,6 +25,8 @@ const Map = () => {
     googleMapsApiKey: `${process.env.REACT_APP_GOOGLE_API_KEY}`
   });
 
+  const vehicles = useSelector(state => state.allVehicles.vehicles)
+  
   return isLoaded? (
     <Fragment>
       <GoogleMap
@@ -31,7 +34,14 @@ const Map = () => {
         center={center}
         zoom={13}
         options={options}
-      />
+      >
+      {vehicles.map(vehicle => (
+          <Marker key={vehicle.id} 
+            position={{lat: vehicle.lat, lng: vehicle.lng}}
+            icon={{ url: require('../../images/icon_scooter_green.png') }}
+          />
+      ))}
+      </GoogleMap>
       <VehiclesList />
     </Fragment>
   ) : <>Loading map...</>
