@@ -1,10 +1,10 @@
 import thunk from 'redux-thunk';
 import { configureStore } from '@reduxjs/toolkit';
 
+import { reducers } from './reducers/index';
+
 export const store = configureStore({
-  reducer: {
-   
-  },
+  reducer: reducers,
   middleware: [
     thunk,
   ],
