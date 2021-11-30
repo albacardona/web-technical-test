@@ -1,11 +1,18 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector, connect } from 'react-redux';
+import { fetchVehicles } from '../../redux/actions/vehicleActions';
 import './VehicleCard.css';
 
-const VehicleCard = () => {
+const VehicleCard = ({ vehiclesData, fetchVehicles}) => {
+
+  console.log(vehiclesData)
 
   const vehicles = useSelector(state => state.allVehicles.vehicles)
   const sortedVehicles = vehicles.sort((a, b) => (a.name > b.name) ? 1 : ((a.name < b.name) ? -1 : 0))
+
+  useEffect(() => {
+    fetchVehicles()
+  }, [fetchVehicles])
 
   const vehicleCard = sortedVehicles.map((vehicle => {
     const { id, name, battery } = vehicle
@@ -26,4 +33,16 @@ const VehicleCard = () => {
   );
 };
 
-export default VehicleCard;
+const mapStateToProps = (state) => {
+  return {
+    vehiclesData: state.allVehicles
+  }
+}
+
+const mapDispatchProps = (dispatch) => {
+  return {
+    fetchVehicles: () => dispatch(fetchVehicles())
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchProps)(VehicleCard);

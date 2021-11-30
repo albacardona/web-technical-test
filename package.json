@@ -1,6 +1,7 @@
 {
   "name": "web-technical-test",
   "version": "0.1.0",
+  "proxy": "https://lambda.rideyego.com",
   "private": true,
   "dependencies": {
     "@react-google-maps/api": "^2.7.0",

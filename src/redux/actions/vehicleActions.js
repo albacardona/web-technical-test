@@ -18,13 +18,17 @@ const getVehiclesFailure = (error) => {
   }
 };
 
-const apiUrl = 'https://jsonplaceholder.typicode.com/users'
+const apiUrl = '/technical-test'
 
 export const fetchVehicles = () => {
   return (dispatch) => {
     dispatch(getVehicles())
     fetch(apiUrl, {
-      method: 'GET'})
+      method: 'GET',
+      headers: {
+        'x-api-key': 'qxECK0jBFkLEk4glKDHx3Z88mC11mUfxq7NMR2EY'
+      }
+    })
       .then(response => response.json())
       .then(data => {
         const vehicles = data
