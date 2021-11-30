@@ -5,8 +5,9 @@ import './VehicleCard.css';
 const VehicleCard = () => {
 
   const vehicles = useSelector(state => state.allVehicles.vehicles)
+  const sortedVehicles = vehicles.sort((a, b) => (a.name > b.name) ? 1 : ((a.name < b.name) ? -1 : 0))
 
-  const vehicleCard = vehicles.map((vehicle => {
+  const vehicleCard = sortedVehicles.map((vehicle => {
     const { id, name, battery } = vehicle
     return (
       <div className="vehicle-card" key={id}>
