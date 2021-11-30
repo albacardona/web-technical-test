@@ -1,12 +1,8 @@
 import thunk from 'redux-thunk';
-import { configureStore } from '@reduxjs/toolkit';
-
+import { createStore, applyMiddleware, compose } from '@reduxjs/toolkit';
 import { reducers } from './reducers/index';
 
-export const store = configureStore({
-  reducer: reducers,
-  middleware: [
-    thunk,
-  ],
-  devTools: process.env.NODE_ENV !== 'production',
-});
+export const store = compose(
+  applyMiddleware(thunk),
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+)(createStore)(reducers);

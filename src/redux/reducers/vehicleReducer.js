@@ -1,15 +1,20 @@
 import { ActionTypes } from "../constants/action-types";
-import vehicles from '../../vehicles.json'
 
 const initialState = {
-  vehicles: vehicles
+  vehicles: [],
+  loading: false,
+  error: null
 };
 
 export const vehicleReducer = (state = initialState, { type, payload }) => {
   switch (type) {
-    case ActionTypes.SET_VEHICLES:
-      return state
+    case ActionTypes.GET_VEHICLES_REQUEST:
+      return {...state, loading: true};
+    case ActionTypes.GET_VEHICLES_SUCCESS:
+      return {...state, loading: false, vehicles: payload};
+    case ActionTypes.GET_VEHICLES_FAILURE:
+      return {...state, loading: false, error: payload};
     default:
-      return state
+      return state;
   }
 };
