@@ -3,23 +3,5 @@
   top: 5rem;
   right: 0;
   height: 72%;
-  overflow: scroll;
+  overflow-y: scroll;
 };
-
-::-webkit-scrollbar {
-  width: 0.5rem;
-}
-
-::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 2px grey;
-  border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb {
-  background: rgb(250, 180, 2);
-  border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: rgb(217, 159, 14);
-}

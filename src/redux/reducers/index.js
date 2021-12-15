@@ -1,6 +1,8 @@
 import { combineReducers } from "redux";
 import { vehicleReducer } from "./vehicleReducer";
+import { statusReducer } from "./statusReducer";
 
 export const reducers = combineReducers({
-  allVehicles: vehicleReducer
+  vehicles: vehicleReducer,
+  status: statusReducer
 });

@@ -1,10 +1,17 @@
-import React from 'react';
-import Map from '../src/components/Map/Map.jsx'
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+import { fetchVehicles } from './redux/actions/vehicleActions';
+import Map from './Components/Map/Map'
+import VehiclesList from './Components/VehiclesList/VehiclesList';
 import './App.css';
 
-function App() {
-  return (
+const App = ({fetchVehicles}) => {
 
+  useEffect(() => {
+    fetchVehicles()
+  }, [fetchVehicles]);
+
+  return (
     <div className="App">
       <header className="App-header">
         <p>
@@ -13,10 +20,23 @@ function App() {
       </header>
       <div className="App-body">
         <Map />
+        <VehiclesList />
       </div>
     </div>
 
   );
-}
+};
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    vehicles: state.allVehicles
+  }
+};
+
+const mapDispatchProps = (dispatch) => {
+  return {
+    fetchVehicles: () => dispatch(fetchVehicles())
+  }
+};
+
+export default connect(mapStateToProps, mapDispatchProps)(App);

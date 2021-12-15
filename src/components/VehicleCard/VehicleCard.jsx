@@ -1,48 +1,51 @@
-import React, { useEffect } from 'react';
-import { useSelector, connect } from 'react-redux';
-import { fetchVehicles } from '../../redux/actions/vehicleActions';
+import React, { Fragment } from 'react';
+import { Link, useParams } from 'react-router-dom';
+import { connect, useSelector } from 'react-redux';
+import { getSelectedVehicle } from '../../redux/actions/vehicleActions';
 import './VehicleCard.css';
 
-const VehicleCard = ({ vehiclesData, fetchVehicles}) => {
 
-  console.log(vehiclesData)
-
-  const vehicles = useSelector(state => state.allVehicles.vehicles)
+const VehicleCard = ({getSelectedVehicle}) => {
+  
+  const vehicles = useSelector(state => state.vehicles.vehicles)
   const sortedVehicles = vehicles.sort((a, b) => (a.name > b.name) ? 1 : ((a.name < b.name) ? -1 : 0))
+  const { id } = useParams()
+  const selectedVehicle = sortedVehicles.find(vehicle => vehicle.id == id)
+  
+  const onClickScooter = () => {
+    getSelectedVehicle(selectedVehicle)
+  }
 
-  useEffect(() => {
-    fetchVehicles()
-  }, [fetchVehicles])
-
-  const vehicleCard = sortedVehicles.map((vehicle => {
+  const vehicleCard = sortedVehicles.map((vehicle, index) => {
     const { id, name, battery } = vehicle
     return (
-      <div className="vehicle-card" key={id}>
-        <div className="status-color"></div>
-        <div className="vehicle-details">
-          <p className="vehicle-name">{name}</p>
-          <p>Battery level: {battery}%</p>
-          <p>Distance: m</p>
+      <Link key={index} to={'/' + id} onClick={onClickScooter}>
+        <div className="vehicle-card">
+          <div className="status-color" style={{background: '#FAB400'}}></div>
+          <div className="vehicle-details">
+            <p className="vehicle-name">{name}</p>
+            <p>Battery level: {battery}%</p>
+          </div>
         </div>
-      </div>
+      </Link>
     )
-  }))
+  })
 
   return (
-    vehicleCard
+    <Fragment>{vehicleCard}</Fragment> 
   );
 };
 
 const mapStateToProps = (state) => {
   return {
-    vehiclesData: state.allVehicles
+    selectedVehicle: state.vehicles.selectedVehicle
   }
-}
+};
 
 const mapDispatchProps = (dispatch) => {
   return {
-    fetchVehicles: () => dispatch(fetchVehicles())
+    getSelectedVehicle: () => dispatch(getSelectedVehicle())
   }
-}
+};
 
 export default connect(mapStateToProps, mapDispatchProps)(VehicleCard);

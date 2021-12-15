@@ -1,29 +1,14 @@
-const getVehicles = () => {
+// FETCH DATA FROM API
+const getVehicles = (vehicles) => {
   return {
-    type: 'GET_VEHICLES'
-  }
-};
-
-const getVehiclesSuccess = (vehicles) => {
-  return {
-    type: 'GET_VEHICLES_SUCCESS',
+    type: 'GET_VEHICLES',
     payload: vehicles
   }
 };
 
-const getVehiclesFailure = (error) => {
-  return {
-    type: 'GET_VEHICLES_FAILURE',
-    payload: error
-  }
-};
-
-const apiUrl = '/technical-test'
-
 export const fetchVehicles = () => {
   return (dispatch) => {
-    dispatch(getVehicles())
-    fetch(apiUrl, {
+    fetch('/technical-test', {
       method: 'GET',
       headers: {
         'x-api-key': 'qxECK0jBFkLEk4glKDHx3Z88mC11mUfxq7NMR2EY'
@@ -32,11 +17,22 @@ export const fetchVehicles = () => {
       .then(response => response.json())
       .then(data => {
         const vehicles = data
-        dispatch(getVehiclesSuccess(vehicles))
+        dispatch(getVehicles(vehicles))
       })
-      .catch(err => {
-        const error = err.message
-        dispatch(getVehiclesFailure(error))
-      })
+      .catch(err => err)
   }
-}
+};
+
+// GET SELECTED VEHICLE
+const selectedVehicle = (vehicle) => {
+  return {
+    type: 'SELECTED_VEHICLE',
+    payload: vehicle
+  }
+};
+
+export const getSelectedVehicle = () => {
+  return (dispatch) => {
+    dispatch(selectedVehicle())
+  }
+};

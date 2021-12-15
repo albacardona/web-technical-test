@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import { useSelector } from 'react-redux';
 import { GoogleMap, useLoadScript, Marker } from '@react-google-maps/api';
 import mapStyle from './mapStyle';
-import VehiclesList from '../VehiclesList/VehiclesList';
+import { Routes, Route, Link, useParams } from 'react-router-dom';
 
 const containerStyle = {
   width: '100%',
@@ -21,12 +21,28 @@ const options = {
 }
 
 const Map = () => {
+
+  const vehicles = useSelector(state => state.vehicles.vehicles)
+  
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: `${process.env.REACT_APP_GOOGLE_API_KEY}`
   });
 
-  const vehicles = useSelector(state => state.allVehicles.vehicles)
-  
+  const { id } = useParams()
+
+  const selectedVehicle = () => {
+    console.log(id)
+  }
+
+  const renderMarkers = vehicles.map((vehicle, index) => (
+    <Link key={index} to={'/' + vehicle.id} onClick={selectedVehicle}>
+      <Marker 
+        position={{lat: vehicle.lat, lng: vehicle.lng}}
+        icon={{ url: require('../../images/icon_scooter_orange.png') }}
+      />
+    </Link>
+  ))
+
   return isLoaded? (
     <Fragment>
       <GoogleMap
@@ -35,16 +51,13 @@ const Map = () => {
         zoom={13}
         options={options}
       >
-      {vehicles.map(vehicle => (
-          <Marker key={vehicle.id} 
-            position={{lat: vehicle.lat, lng: vehicle.lng}}
-            icon={{ url: require('../../images/icon_scooter_green.png') }}
-          />
-      ))}
+        <Routes>
+          <Route path="/:id" exact element={renderMarkers} />
+        </Routes>
       </GoogleMap>
-      <VehiclesList />
+
     </Fragment>
-  ) : <>Loading map...</>
+  ) : <div className='loading'>Loading map...</div>
 };
 
 export default Map;
