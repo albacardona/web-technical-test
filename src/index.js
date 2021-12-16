@@ -9,9 +9,8 @@ import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
 // APP COMPONENT
 import App from './App';
-// CSS & BOOTSTRAP IMPORT
+// CSS IMPORT
 import './index.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 ReactDOM.render(
   <Router>

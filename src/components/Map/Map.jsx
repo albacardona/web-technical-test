@@ -6,7 +6,7 @@ import { GoogleMap, useLoadScript } from '@react-google-maps/api';
 import { containerStyle, center, options } from './mapConfig';
 // COMPONENTS
 import VehicleMarkers from '../Markers/Markers';
-import { Spinner } from 'react-bootstrap';
+import Spinner from '../Spinner/Spinner';
 
 const Map = () => {
   
@@ -29,7 +29,7 @@ const Map = () => {
     </Fragment>
   ) : 
       <div className='loading'>
-        <Spinner animation="border" variant="secondary" />
+        <Spinner />
         <p>Loading map...</p>
       </div>
 };
