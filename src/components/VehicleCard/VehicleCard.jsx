@@ -1,25 +1,27 @@
+// REACT IMPORTS
 import React, { Fragment } from 'react';
-import { Link, useParams } from 'react-router-dom';
-import { connect, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+// REDUX IMPORTS
+import { useSelector } from 'react-redux';
 import { getSelectedVehicle } from '../../redux/actions/vehicleActions';
+import { store } from '../../redux/store';
+// CSS IMPORTS
 import './VehicleCard.css';
 
-
-const VehicleCard = ({getSelectedVehicle}) => {
+const VehicleCard = () => {
   
   const vehicles = useSelector(state => state.vehicles.vehicles)
   const sortedVehicles = vehicles.sort((a, b) => (a.name > b.name) ? 1 : ((a.name < b.name) ? -1 : 0))
-  const { id } = useParams()
-  const selectedVehicle = sortedVehicles.find(vehicle => vehicle.id == id)
   
-  const onClickScooter = () => {
-    getSelectedVehicle(selectedVehicle)
+  const onClickHandler = (scooter) => {
+    const selectedVehicle = sortedVehicles.find(vehicle => vehicle.id === scooter)
+    store.dispatch(getSelectedVehicle(selectedVehicle))
   }
 
   const vehicleCard = sortedVehicles.map((vehicle, index) => {
     const { id, name, battery } = vehicle
     return (
-      <Link key={index} to={'/' + id} onClick={onClickScooter}>
+      <Link key={index} to={'/' + id} onClick={()=>onClickHandler(id)}>
         <div className="vehicle-card">
           <div className="status-color" style={{background: '#FAB400'}}></div>
           <div className="vehicle-details">
@@ -36,16 +38,4 @@ const VehicleCard = ({getSelectedVehicle}) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    selectedVehicle: state.vehicles.selectedVehicle
-  }
-};
-
-const mapDispatchProps = (dispatch) => {
-  return {
-    getSelectedVehicle: () => dispatch(getSelectedVehicle())
-  }
-};
-
-export default connect(mapStateToProps, mapDispatchProps)(VehicleCard);
+export default VehicleCard;

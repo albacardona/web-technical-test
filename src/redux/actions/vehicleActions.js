@@ -24,15 +24,9 @@ export const fetchVehicles = () => {
 };
 
 // GET SELECTED VEHICLE
-const selectedVehicle = (vehicle) => {
+export const getSelectedVehicle = (vehicle) => {
   return {
     type: 'SELECTED_VEHICLE',
     payload: vehicle
-  }
-};
-
-export const getSelectedVehicle = () => {
-  return (dispatch) => {
-    dispatch(selectedVehicle())
   }
 };

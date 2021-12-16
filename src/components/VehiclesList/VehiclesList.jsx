@@ -1,7 +1,9 @@
+// REACT IMPORTS
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
+//COMPONENTS
 import VehicleCard from '../VehicleCard/VehicleCard';
-
+// CSS IMPORTS
 import './VehiclesList.css';
 
 const VehiclesList = () => {
