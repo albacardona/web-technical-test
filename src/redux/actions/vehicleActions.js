@@ -16,7 +16,7 @@ export const fetchVehicles = () => {
     })
       .then(response => response.json())
       .then(data => {
-        const vehicles = data
+        const vehicles = data.sort((a, b) => (a.name > b.name) ? 1 : ((a.name < b.name) ? -1 : 0))
         dispatch(getVehicles(vehicles))
       })
       .catch(err => err)

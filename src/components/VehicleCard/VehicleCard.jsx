@@ -11,19 +11,28 @@ import './VehicleCard.css';
 const VehicleCard = () => {
   
   const vehicles = useSelector(state => state.vehicles.vehicles)
-  const sortedVehicles = vehicles.sort((a, b) => (a.name > b.name) ? 1 : ((a.name < b.name) ? -1 : 0))
+  const selectedVehicle = useSelector(state => state.vehicles.selectedVehicle)
   
-  const onClickHandler = (scooter) => {
-    const selectedVehicle = sortedVehicles.find(vehicle => vehicle.id === scooter)
-    store.dispatch(getSelectedVehicle(selectedVehicle))
+  const onClickHandler = (vehicleID) => {
+    store.dispatch(getSelectedVehicle(vehicles.find(vehicle => vehicle.id === vehicleID)))
   }
 
-  const vehicleCard = sortedVehicles.map((vehicle, index) => {
-    const { id, name, battery } = vehicle
+  const vehicleCard = vehicles.map((vehicle, index) => {
+    const { id, name, battery, status } = vehicle
+    let color = '#FAB400'
+    if (vehicle === selectedVehicle) {
+      color = '#31B498'
+    } else if (status === 1) {
+      color = '#29323C'
+    } else if (status === 0) {
+      color = '#FAB400'
+    } else {
+      color = '#E92216'
+    }
     return (
       <Link key={index} to={'/' + id} onClick={()=>onClickHandler(id)}>
         <div className="vehicle-card">
-          <div className="status-color" style={{background: '#FAB400'}}></div>
+          <div className="status-color" style={{background: color}}></div>
           <div className="vehicle-details">
             <p className="vehicle-name">{name}</p>
             <p>Battery level: {battery}%</p>

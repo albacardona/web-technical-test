@@ -5,7 +5,7 @@ import { Routes, Route } from 'react-router-dom';
 import { GoogleMap, useLoadScript } from '@react-google-maps/api';
 import { containerStyle, center, options } from './mapConfig';
 // COMPONENTS
-import VehicleMarkers from '../Markers/Markers';
+import VehicleMarkers from '../VehicleMarkers/VehicleMarkers';
 import Spinner from '../Spinner/Spinner';
 
 const Map = () => {
@@ -27,8 +27,7 @@ const Map = () => {
         </Routes>
       </GoogleMap>
     </Fragment>
-  ) : 
-      <div className='loading'>
+  ) : <div className='loading'>
         <Spinner />
         <p>Loading map...</p>
       </div>
