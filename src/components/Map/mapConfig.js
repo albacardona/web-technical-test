@@ -1,4 +1,5 @@
-export default [
+// STYLING OPTIONS FROM SNAZZY MAPS
+const mapStyle = [
     {
         "featureType": "administrative.land_parcel",
         "elementType": "all",
@@ -116,4 +117,20 @@ export default [
             }
         ]
     }
-]
+];
+// MAP CONFIGS
+export const containerStyle = {
+  width: '100%',
+  height: '100%',
+};
+
+export const center = {
+  lat: 41.397669,
+  lng: 2.176236,
+};
+
+export const options = {
+  styles: mapStyle,
+  disableDefaultUI: true,
+  zoomControl: true
+};
