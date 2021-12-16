@@ -1,8 +1,12 @@
+// REACT IMPORTS
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
+// REDUX IMPORTS
 import { fetchVehicles } from './redux/actions/vehicleActions';
+// COMPONENTS
 import Map from './Components/Map/Map'
 import VehiclesList from './Components/VehiclesList/VehiclesList';
+// CSS IMPORTS
 import './App.css';
 
 const App = ({fetchVehicles}) => {

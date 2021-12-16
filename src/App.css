@@ -20,6 +20,10 @@
   width: 100%;
 }
 
+.scooter-name {
+  color: whitesmoke;
+}
+
 ::-webkit-scrollbar {
   width: 0.5rem;
   height: 1rem;
@@ -43,7 +47,6 @@
 .loading {
   height: 100%;
   margin: 25%;
-  font-size: 3rem;
 }
 
 @keyframes App-logo-spin {
