@@ -33,14 +33,8 @@ const App = ({fetchVehicles}) => {
 
 const mapStateToProps = (state) => {
   return {
-    vehicles: state.allVehicles
+    vehicles: state.vehicles
   }
 };
 
-const mapDispatchProps = (dispatch) => {
-  return {
-    fetchVehicles: () => dispatch(fetchVehicles())
-  }
-};
-
-export default connect(mapStateToProps, mapDispatchProps)(App);
+export default connect(mapStateToProps, {fetchVehicles})(App);

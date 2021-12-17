@@ -9,7 +9,7 @@ import './VehicleCard.css';
 
 const VehicleCard = () => {
   
-  const vehicles = useSelector(state => state.vehicles.vehicles)
+  const vehicles = useSelector(state => state.vehicles.filteredVehicles)
   const selectedVehicle = useSelector(state => state.vehicles.selectedVehicle)
   
   const onClickHandler = (vehicleID) => {

@@ -23,3 +23,7 @@ button {
   border: none;
   cursor: pointer;
 }
+
+button:hover {
+  background-color: rgb(215, 215, 215);
+}

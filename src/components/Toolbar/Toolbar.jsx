@@ -3,7 +3,7 @@ import React from "react";
 // REDUX IMPORTS
 import { useSelector } from "react-redux";
 import { store } from "../../redux/store";
-import { getAvailableVehicles } from "../../redux/actions/vehicleActions";
+import { filterVehicles } from '../../redux/actions/vehicleActions';
 // CSS & MATERIAL-UI IMPORT
 import './Toolbar.css'
 import ArrowDownwardOutlinedIcon from '@mui/icons-material/ArrowDownwardOutlined';
@@ -12,23 +12,19 @@ import ArrowUpwardOutlinedIcon from '@mui/icons-material/ArrowUpwardOutlined';
 const Toolbar = () => {
 
   const vehicles = useSelector(state => state.vehicles.vehicles)
-  const filteredVehicles = vehicles.filter((vehicle) => (
-    vehicle.status === 0
-  ))
 
-  console.log(filteredVehicles)
-  const handleAvailableVehicles = () => {
-    store.dispatch(getAvailableVehicles(vehicles))
+  const handleVehicleStatus = (status) => {
+    store.dispatch(filterVehicles(vehicles, status))
   }
 
   return (
     <div className='toolbar'>
       <button><ArrowUpwardOutlinedIcon /></button>
-      <select name='status'>
-        <option value='all-vehicles'>All vehicles</option>
-        <option value='available' onClick={handleAvailableVehicles}>Available</option>
-        <option value='booked'>Booked</option>
-        <option value='others'>Others</option>
+      <select  onChange={(e) => handleVehicleStatus(e.target.value)}>
+        <option value='' >All vehicles</option>
+        <option value='0'>Available</option>
+        <option value='1'>Booked</option>
+        <option value='2'>Others</option>
       </select>
       <button><ArrowDownwardOutlinedIcon /></button>
     </div>
