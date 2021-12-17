@@ -12,7 +12,11 @@ import ArrowUpwardOutlinedIcon from '@mui/icons-material/ArrowUpwardOutlined';
 const Toolbar = () => {
 
   const vehicles = useSelector(state => state.vehicles.vehicles)
-  console.log(vehicles)
+  const filteredVehicles = vehicles.filter((vehicle) => (
+    vehicle.status === 0
+  ))
+
+  console.log(filteredVehicles)
   const handleAvailableVehicles = () => {
     store.dispatch(getAvailableVehicles(vehicles))
   }
@@ -22,7 +26,7 @@ const Toolbar = () => {
       <button><ArrowUpwardOutlinedIcon /></button>
       <select name='status'>
         <option value='all-vehicles'>All vehicles</option>
-        <option value='available' onClick={()=>handleAvailableVehicles()}>Available</option>
+        <option value='available' onClick={handleAvailableVehicles}>Available</option>
         <option value='booked'>Booked</option>
         <option value='others'>Others</option>
       </select>

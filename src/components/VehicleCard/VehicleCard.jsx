@@ -1,6 +1,5 @@
 // REACT IMPORTS
 import React, { Fragment } from 'react';
-import { Link } from 'react-router-dom';
 // REDUX IMPORTS
 import { useSelector } from 'react-redux';
 import { getSelectedVehicle } from '../../redux/actions/vehicleActions';
@@ -31,15 +30,13 @@ const VehicleCard = () => {
     }
     
     return (
-      <Link key={index} to={'/' + id} onClick={()=>onClickHandler(id)}>
-        <div className="vehicle-card">
+        <div key={index} className="vehicle-card" onClick={()=>onClickHandler(id)}>
           <div className="status-color" style={{background: color}}></div>
           <div className="vehicle-details">
             <p className="vehicle-name">{name}</p>
             <p>Battery level: {battery}%</p>
           </div>
         </div>
-      </Link>
     )
   })
 

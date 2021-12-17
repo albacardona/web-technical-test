@@ -12,7 +12,7 @@ const VehiclesList = () => {
     <div className='vehicles-list-container'>
       <Toolbar />
       <div className="vehicles-list">
-        <VehicleCard className="vehicles-card"/>
+        <VehicleCard />
       </div>
     </div>
   )
