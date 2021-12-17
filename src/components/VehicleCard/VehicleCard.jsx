@@ -29,6 +29,7 @@ const VehicleCard = () => {
     } else {
       color = '#E92216'
     }
+    
     return (
       <Link key={index} to={'/' + id} onClick={()=>onClickHandler(id)}>
         <div className="vehicle-card">

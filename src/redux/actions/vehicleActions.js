@@ -30,3 +30,15 @@ export const getSelectedVehicle = (vehicle) => {
     payload: vehicle
   }
 };
+
+// FILTER VEHICLES BY STATUS: AVAILABLE
+export const getAvailableVehicles = (vehicles) => {
+  const availableVehicles = vehicles.filter((vehicle) => (
+    vehicle.status === 0
+  ))
+
+  return {
+    type: 'GET_AVAILABLE_VEHICLES',
+    payload: availableVehicles
+  }
+}

@@ -1,0 +1,25 @@
+.toolbar {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+select {
+  background: whitesmoke;
+  border: none;
+  font-size: 14px;
+  height: 30px;
+  padding: 5px;
+  width: 75%;
+  cursor: pointer;
+}
+
+select:focus {
+  outline: none;
+}
+
+button {
+  background-color: whitesmoke;
+  border: none;
+  cursor: pointer;
+}

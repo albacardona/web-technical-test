@@ -1,5 +1,6 @@
 // REACT IMPORTS
 import React, { Fragment } from 'react';
+import { Link } from 'react-router-dom';
 // GOOGLE MAPS IMPORT
 import { Marker } from '@react-google-maps/api';
 // REDUX IMPORTS
@@ -11,6 +12,7 @@ const Markers = () => {
   
   const vehicles = useSelector(state => state.vehicles.vehicles)
   const selectedVehicle = useSelector(state => state.vehicles.selectedVehicle)
+  // store.dispatch(getSelectedVehicle(vehicles.find(vehicle => vehicle.id === vehicles[0].id)))
   
   const onClickHandler = (vehicleID) => {
     store.dispatch(getSelectedVehicle(vehicles.find(vehicle => vehicle.id === vehicleID)))
@@ -20,8 +22,10 @@ const Markers = () => {
     const { id, lat, lng, status } = vehicle
     
     let color = 'orange'
+    let scale = [33, 46]
     if (vehicle === selectedVehicle) {
       color = 'green'
+      scale = [43,59]
     } else if (status === 1) {
       color = 'black'
     } else if (status === 0) {
@@ -31,13 +35,18 @@ const Markers = () => {
     }
 
     return (
-      <Marker 
-        key={index}
-        to={'/' + id}
-        position={{lat: lat, lng: lng}}
-        icon={{ url: require('../../images/icon_scooter_' + color + '.png') }}
-        onClick={()=>onClickHandler(id)}
-      />
+      <Link key={index} to={'/' + id}>
+        <Marker
+          
+          
+          position={{lat: lat, lng: lng}}
+          icon={{ 
+            url: require('../../images/icon_scooter_' + color + '.png'),
+            scaledSize: new window.google.maps.Size(scale[0], scale[1])
+          }}
+          onClick={()=>onClickHandler(id)}
+        />
+      </Link>
     )
   })
 

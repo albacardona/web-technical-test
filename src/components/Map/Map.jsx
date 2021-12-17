@@ -1,6 +1,5 @@
 // REACT IMPORTS
 import React, { Fragment } from 'react';
-import { Routes, Route } from 'react-router-dom';
 // GOOGLE MAPS IMPORTS & CONFIG
 import { GoogleMap, useLoadScript } from '@react-google-maps/api';
 import { containerStyle, center, options } from './mapConfig';
@@ -22,9 +21,7 @@ const Map = () => {
         zoom={13}
         options={options}
       >
-        <Routes>
-          <Route path="/:id" exact element={<VehicleMarkers />} />
-        </Routes>
+        <VehicleMarkers />
       </GoogleMap>
     </Fragment>
   ) : <div className='loading'>

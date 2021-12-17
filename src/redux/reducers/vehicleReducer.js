@@ -2,22 +2,17 @@ import { ActionTypes } from "../constants/action-types";
 
 const initialState = {
   vehicles: [],
-  selectedVehicle: {
-    "id": 277,
-    "name": "Abbey",
-    "lat": 41.384092,
-    "lng": 2.182217,
-    "battery": 6,
-    "status": 2
-  }
+  selectedVehicle: []
 };
 
 export const vehicleReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case ActionTypes.GET_VEHICLES:
-      return {...state, vehicles: payload};
+      return {...state, vehicles: payload, selectedVehicle: payload[0]};
     case ActionTypes.SELECTED_VEHICLE:
       return {...state, selectedVehicle: payload};
+    case ActionTypes.GET_AVAILABLE_VEHICLES:
+      return {...state, vehicles: payload, selectedVehicle: payload[0]};
     default:
       return state;
   }

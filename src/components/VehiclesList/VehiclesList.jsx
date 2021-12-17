@@ -1,7 +1,7 @@
 // REACT IMPORTS
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
 //COMPONENTS
+import Toolbar from '../Toolbar/Toolbar';
 import VehicleCard from '../VehicleCard/VehicleCard';
 // CSS IMPORTS
 import './VehiclesList.css';
@@ -9,14 +9,11 @@ import './VehiclesList.css';
 const VehiclesList = () => {
 
   return (
-    <div className="vehicles-list">
-      <select name='status'>
-      </select>
-      <button><span role='img' aria-label='emoji'>🔼</span></button>
-      <button><span role='img' aria-label='emoji'>🔽</span></button>
-      <Routes>
-        <Route path="/:id" exact element={<VehicleCard />} />
-      </Routes>
+    <div className='vehicles-list-container'>
+      <Toolbar />
+      <div className="vehicles-list">
+        <VehicleCard className="vehicles-card"/>
+      </div>
     </div>
   )
 };

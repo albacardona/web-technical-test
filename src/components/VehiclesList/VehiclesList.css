@@ -1,7 +1,11 @@
-.vehicles-list {
+.vehicles-list-container {
   position: absolute;
   top: 5rem;
   right: 0;
-  height: 72%;
+  height: 70%;
+}
+
+.vehicles-list {
+  height: 100%;
   overflow-y: scroll;
-};
+}
