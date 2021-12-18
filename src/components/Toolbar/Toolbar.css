@@ -34,10 +34,10 @@ button:enabled:hover {
   background-color: rgb(215, 215, 215);
 }
 
-.click-up-effect:enabled:active {
+.click-up-effect:active {
   transform: translateY(-2px);
 }
 
-.click-down-effect:enabled:active {
+.click-down-effect:active {
   transform: translateY(2px);
 }

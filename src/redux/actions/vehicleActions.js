@@ -29,13 +29,16 @@ export const getSelectedVehicle = (vehicle) => {
   }
 };
 
-// FILTER VEHICLES BY STATUS: AVAILABLE
+// FILTER VEHICLES BY STATUS
 export const filterVehicles = (vehicles, status) => {
   return {
     type: 'FILTER_VEHICLES',
     payload: {
       status: status,
-      vehicles: status === '' ? vehicles : vehicles.filter((vehicle) => (vehicle.status === parseInt(status)))
+      vehicles: 
+      status === '' ? vehicles :
+      status === '2' ? vehicles.filter((vehicle) => vehicle.status >= 2) :
+      vehicles.filter((vehicle) => vehicle.status === parseInt(status))
     }
   }
 }

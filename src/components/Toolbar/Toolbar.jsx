@@ -11,14 +11,15 @@ import ArrowUpwardOutlinedIcon from '@mui/icons-material/ArrowUpwardOutlined';
 
 const Toolbar = () => {
 
-  const vehicles = useSelector(state => state.vehicles.filteredVehicles)
+  const allVehicles = useSelector(state => state.vehicles.vehicles)
+  const vehicles  = useSelector(state => state.vehicles.filteredVehicles)
   const selectedVehicle = useSelector(state => state.vehicles.selectedVehicle)
 
   const [previousDisabled, setPreviousDisabled] = useState(true);
   const [nextDisabled, setNextDisabled] = useState(false);
 
   const handleVehicleStatus = (status) => {
-    store.dispatch(filterVehicles(vehicles, status))
+    store.dispatch(filterVehicles(allVehicles, status))
   }
 
   const changeSelectedVehicle = (sum) => {
@@ -31,7 +32,7 @@ const Toolbar = () => {
     if (currentIndex === 0) {
       setPreviousDisabled(true)
       setNextDisabled(false)
-    } else if (currentIndex >= 0 && currentIndex < lastIndex) {
+    } else if (currentIndex > 0 && currentIndex < lastIndex) {
       setPreviousDisabled(false)
       setNextDisabled(false)
     } else if (currentIndex === lastIndex) {
@@ -40,14 +41,13 @@ const Toolbar = () => {
     } 
   }, [vehicles, selectedVehicle])
 
-  
   return (
     <div className='toolbar'>
       <button onClick={() => changeSelectedVehicle(-1)} disabled={previousDisabled}>
         <ArrowUpwardOutlinedIcon className='click-up-effect'/>
       </button>
       <select onChange={(e) => handleVehicleStatus(e.target.value)}>
-        <option value='' >All vehicles</option>
+        <option value=''>All vehicles</option>
         <option value='0'>Available</option>
         <option value='1'>Booked</option>
         <option value='2'>Others</option>
