@@ -32,7 +32,7 @@ export const getSelectedVehicle = (vehicle) => {
 // FILTER VEHICLES BY STATUS: AVAILABLE
 export const filterVehicles = (vehicles, status) => {
   return {
-    type: 'GET_AVAILABLE_VEHICLES',
+    type: 'FILTER_VEHICLES',
     payload: {
       status: status,
       vehicles: status === '' ? vehicles : vehicles.filter((vehicle) => (vehicle.status === parseInt(status)))

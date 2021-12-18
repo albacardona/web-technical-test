@@ -13,9 +13,11 @@ export const vehicleReducer = (state = initialState, { type, payload }) => {
       return {...state, vehicles: payload, filteredVehicles: payload, selectedVehicle: payload[0]};
     case ActionTypes.SELECTED_VEHICLE:
       return {...state, selectedVehicle: payload};
-    case ActionTypes.GET_AVAILABLE_VEHICLES:
+    case ActionTypes.FILTER_VEHICLES:
       return {...state, filteredVehicles: payload.vehicles, status: payload.status, selectedVehicle: payload.vehicles[0]};
-    default:
+    case ActionTypes.SELECT_NEXT_VEHICLE:
+      return {...state, selectedVehicle: payload};
+      default:
       return state;
   }
 };

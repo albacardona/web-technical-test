@@ -18,12 +18,26 @@ select:focus {
   outline: none;
 }
 
-button {
+button:enabled {
   background-color: whitesmoke;
   border: none;
   cursor: pointer;
 }
 
-button:hover {
+button:disabled {
+  background-color: whitesmoke;
+  color: rgb(160, 160, 160);
+  border: none;
+}
+
+button:enabled:hover {
   background-color: rgb(215, 215, 215);
+}
+
+.click-up-effect:enabled:active {
+  transform: translateY(-2px);
+}
+
+.click-down-effect:enabled:active {
+  transform: translateY(2px);
 }
